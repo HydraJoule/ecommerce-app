@@ -140,8 +140,8 @@ export function AdminDashboard() {
   }, [supabase])
 
   const handleSignOut = async () => {
-    await supabase.auth.signOut()
-    router.push("/")
+  await fetch("/api/auth/signout", { method: "POST" })
+  router.push("/")
   }
 
   if (isLoading) {
