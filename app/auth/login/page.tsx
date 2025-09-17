@@ -31,20 +31,29 @@ export default function LoginPage() {
       })
       if (error) throw error
 
+      // Wait a moment to ensure session cookie is set
+      await new Promise((resolve) => setTimeout(resolve, 300))
+
       // Get user profile to determine redirect
+      const userResult = await supabase.auth.getUser()
+      console.log("User after login:", userResult)
       const { data: profile } = await supabase
         .from("profiles")
         .select("role")
-        .eq("id", (await supabase.auth.getUser()).data.user?.id)
+        .eq("id", userResult.data.user?.id)
         .single()
+      console.log("Profile after login:", profile)
 
       if (profile?.role === "owner") {
+        console.log("Redirecting to /admin")
         router.push("/admin")
       } else {
+        console.log("Redirecting to /shop")
         router.push("/shop")
       }
     } catch (error: unknown) {
       setError(error instanceof Error ? error.message : "An error occurred")
+      console.error("Login error:", error)
     } finally {
       setIsLoading(false)
     }
