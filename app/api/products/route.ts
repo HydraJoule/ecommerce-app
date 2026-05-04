@@ -20,4 +20,8 @@ export async function GET() {
     console.error("Error fetching products:", error)
     return NextResponse.json({ error: "Failed to fetch products" }, { status: 500 })
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> b4f24ad9ee535c08f90292ce3005d54529d8c72f
