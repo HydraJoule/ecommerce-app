@@ -1,9 +1,12 @@
+export const dynamic = 'force-dynamic';
+
 import { createClient } from "@/lib/supabase/server"
 import { NextResponse } from "next/server"
 
 export async function GET() {
   try {
     const supabase = await createClient()
+
     const { data: products, error } = await supabase
       .from("products")
       .select("*")
