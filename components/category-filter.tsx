@@ -5,7 +5,6 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import Link from "next/link"
 
 const categories = [
-<<<<<<< HEAD
   "Dairy",
   "Snacks",
   "Oil",
@@ -17,17 +16,6 @@ const categories = [
   "Vegetables",
   "Bakery",
   "Fashion",
-=======
-  "Electronics",
-  "Clothing",
-  "Home & Garden",
-  "Sports & Outdoors",
-  "Books",
-  "Health & Beauty",
-  "Toys & Games",
-  "Food & Beverages",
-  "Other",
->>>>>>> b4f24ad9ee535c08f90292ce3005d54529d8c72f
 ]
 
 interface CategoryFilterProps {

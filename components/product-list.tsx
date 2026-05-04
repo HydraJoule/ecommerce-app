@@ -52,23 +52,14 @@ export function ProductList({ isAdmin = false, category }: ProductListProps) {
           query = query.eq("is_active", true)
         }
 
-<<<<<<< HEAD
         if (category && category !== "Other") {
           query = query.ilike("category", category)
-=======
-        if (category) {
-          query = query.eq("category", category)
->>>>>>> b4f24ad9ee535c08f90292ce3005d54529d8c72f
         }
 
         const { data, error } = await query
 
         if (error) throw error
         setProducts(data || [])
-<<<<<<< HEAD
-        console.log("Products:", data)
-=======
->>>>>>> b4f24ad9ee535c08f90292ce3005d54529d8c72f
       } catch (error) {
         console.error("Error fetching products:", error)
       } finally {
